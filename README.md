@@ -8,9 +8,9 @@ This project, aims to provide a climate analysis and a Flask API for retrieving 
 
 ## __Files Included__
 
-[climate_starter.ipynb](): This Jupyter notebook contains the initial analysis using Python, SQLAlchemy, Pandas, and Matplotlib to explore and analyze climate data.
+[climate_starter.ipynb](https://github.com/kaijaygregory/sqlalchemy-challenge/blob/main/climate_starter.ipynb): This Jupyter notebook contains the initial analysis using Python, SQLAlchemy, Pandas, and Matplotlib to explore and analyze climate data.
 
-[app.py](): This file serves as the main script to create a Flask API, defining routes to access different data points.
+[app.py](https://github.com/kaijaygregory/sqlalchemy-challenge/blob/main/app.py): This file serves as the main script to create a Flask API, defining routes to access different data points.
 
 __Resources:__ This directory contains the data files used for the analysis, including the SQLite database file (hawaii.sqlite).
 
