@@ -101,7 +101,7 @@ def start(start):
         start_behind = start_date - timedelta(days=1)
         start_date = start_behind.date()
 
-        # Query to calculate TMIN, TAVG, and TMAX for all dates greater than or equal to start_date
+        # Query to calculate TMIN, TMAX, and TAVG from the given start date to the end of the dataset
         temperature_stats = session.query(measurement.date,
                                 func.min(measurement.tobs).label('min_temp'),
                                 func.avg(measurement.tobs).label('avg_temp'),
@@ -136,7 +136,7 @@ def start_end(start, end):
         start_date = start_behind.date()
         end_date = datetime.strptime(end, "%Y-%m-%d")
         
-        # Query to calculate TMIN, TAVG, and TMAX for all dates greater than or equal to start_date
+        # Query to calculate TMIN, TMAX, and TAVG from the given start date to the given end date
         temperature_stats = session.query(measurement.date,
                                 func.min(measurement.tobs).label('min_temp'),
                                 func.avg(measurement.tobs).label('avg_temp'),
