@@ -15,10 +15,10 @@ from flask import Flask, jsonify
 #################################################
 engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 
-# reflect an existing database into a new model
+# Reflect an existing database into a new model
 Base = automap_base()
 
-# reflect the tables
+# Reflect the tables
 Base.prepare(autoload_with=engine)
 
 # Save references to each table
@@ -67,7 +67,7 @@ def stations():
 
 @app.route("/api/v1.0/tobs")
 def tobs():
-    # Query to find the most active station
+    # Find the most active station
     most_active_station = session.query(measurement.station, func.count(measurement.station)).\
         group_by(measurement.station).\
         order_by(func.count(measurement.station).desc()).first()[0]
@@ -75,7 +75,7 @@ def tobs():
     # Calculate the date one year ago from the last date in the dataset
     one_year_ago = dt.date(2017, 8, 23) - dt.timedelta(days=365)
     
-    # Query to retrieve temperature observations for the last 12 months from the most active station
+    # Retrieve temperature observations for the last 12 months for the most active station
     tobs_data = session.query(measurement.date, measurement.tobs).\
         filter(measurement.date >= one_year_ago).\
         filter(measurement.station == most_active_station).\
@@ -101,7 +101,7 @@ def start(start):
         start_behind = start_date - timedelta(days=1)
         start_date = start_behind.date()
 
-        # Query to calculate TMIN, TMAX, and TAVG from the given start date to the end of the dataset
+        # Return the TMIN, TMAX, and TAVG from the given start date to the end of the dataset
         temperature_stats = session.query(measurement.date,
                                 func.min(measurement.tobs).label('min_temp'),
                                 func.avg(measurement.tobs).label('avg_temp'),
@@ -109,7 +109,7 @@ def start(start):
             filter(measurement.date >= start_behind).\
             group_by(measurement.date).all()
             
-        # Creating a list to hold temperature data for each date
+        # Create a list to hold temperature data for each date
         result_data = []
         for stat in temperature_stats:
             date_str, tmin, tavg, tmax = stat
@@ -136,7 +136,7 @@ def start_end(start, end):
         start_date = start_behind.date()
         end_date = datetime.strptime(end, "%Y-%m-%d")
         
-        # Query to calculate TMIN, TMAX, and TAVG from the given start date to the given end date
+        # Return the TMIN, TMAX, and TAVG calculated from the given start date to the given end date
         temperature_stats = session.query(measurement.date,
                                 func.min(measurement.tobs).label('min_temp'),
                                 func.avg(measurement.tobs).label('avg_temp'),
@@ -145,7 +145,7 @@ def start_end(start, end):
             filter(measurement.date <= end_date).\
             group_by(measurement.date).all()
             
-        # Creating a list to hold temperature data for each date
+        # Create a list to hold temperature data for each date
         result_data = []
         for stat in temperature_stats:
             date_str, tmin, tavg, tmax = stat
