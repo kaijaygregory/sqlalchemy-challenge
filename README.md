@@ -20,7 +20,7 @@ The climate_starter.ipynb notebook uses SQLAlchemy to connect to the SQLite data
 ![Precipitation Analysis](https://github.com/kaijaygregory/sqlalchemy-challenge/blob/main/Images/Precipitation%20Analysis.png)
 ![Station Analysis](https://github.com/kaijaygregory/sqlalchemy-challenge/blob/main/Images/Station%20Analysis.png)
 
-## __Part 2: Design Your Climate App__
+## __Part 2: Design Climate App__
 
 The app.py file creates various routes to access the climate data stored in the SQLite database.
 The following routes have been implemented:
