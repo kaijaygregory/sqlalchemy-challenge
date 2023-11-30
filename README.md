@@ -12,7 +12,7 @@ This project, aims to provide a climate analysis and a Flask API for retrieving 
 
 [app.py](https://github.com/kaijaygregory/sqlalchemy-challenge/blob/main/app.py): This file serves as the main script to create a Flask API, defining routes to access different data points.
 
-__Resources:__ This directory contains the data files used for the analysis, including the SQLite database file (hawaii.sqlite).
+__Resources:__ This directory contains the data files used for the analysis.
 
 ## __Part 1: Analyze and Explore the Climate Data__
 
@@ -28,7 +28,7 @@ The following routes have been implemented:
 * /api/v1.0/precipitation: Returns JSON representation of precipitation data for the last 12 months.
 * /api/v1.0/stations: Returns a JSON list of weather stations in the dataset.
 * /api/v1.0/tobs: Provides JSON list of temperature observations for the most active station for the previous year.
-* /api/v1.0/<start> and /api/v1.0/<start>/<end>: Returns JSON list of temperature statistics for a specified start date or date range.
+* /api/v1.0/start and /api/v1.0/start/end: Returns JSON list of temperature statistics for a specified start date or date range.
 
 
 
